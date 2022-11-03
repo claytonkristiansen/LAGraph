@@ -869,4 +869,14 @@ int LAGraph_HelloWorld // a simple algorithm, just for illustration
     char *msg
 ) ;
 
+LAGRAPH_PUBLIC
+int LAGraph_MarkovClustering // a simple algorithm, just for illustration
+(
+    // output
+    GrB_Matrix *Yhandle,    // Y, created on output
+    // input: not modified
+    LAGraph_Graph G,
+    char *msg
+) ;
+
 #endif
