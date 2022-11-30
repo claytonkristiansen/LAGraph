@@ -876,7 +876,9 @@ int LAGraph_MarkovClustering // a simple algorithm, just for illustration
     GrB_Matrix *Yhandle,    // Y, created on output
     // input: not modified
     LAGraph_Graph G,
-    char *msg
+    char *msg,
+    unsigned int k,
+    unsigned int r
 ) ;
 
 #endif

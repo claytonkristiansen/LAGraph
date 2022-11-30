@@ -91,7 +91,7 @@ int main (int argc, char **argv)
     //--------------------------------------------------------------------------
 
     t = LAGraph_WallClockTime ( ) ;
-    LG_TRY (LAGraph_MarkovClustering (&Y, G, msg)) ;
+    LG_TRY (LAGraph_MarkovClustering (&Y, G, msg, 2, 2)) ;
     t = LAGraph_WallClockTime ( ) - t ;
     printf ("Time for LAGraph_HelloWorld: %g sec\n", t) ;
 

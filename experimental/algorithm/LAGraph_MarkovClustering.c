@@ -55,7 +55,9 @@ int LAGraph_MarkovClustering
     GrB_Matrix *Yhandle,    // Y, created on output
     // input: not modified
     LAGraph_Graph G,
-    char *msg
+    char *msg,
+    unsigned int k,
+    unsigned int r
 )
 {
 
@@ -72,6 +74,23 @@ int LAGraph_MarkovClustering
 
     // basic checks of the input graph
     LG_TRY (LAGraph_CheckGraph (G, msg)) ;
+
+
+    //All operations here are on the adjacency matrix:
+    //MCL Algorithm:
+
+    //create Graph P as copy of graph G
+    //normalize P
+    //loop while not in steady state
+        //Graph Q is created from the expansion of graph P (take matrix to power of k)
+        //Q is inflated by factor r (take each entry to power of r, then renormalize matrix)
+        //Trim small probability entries
+        //Compare Q to P to check for steady state
+        //If in steady state:
+            //return results
+        //Else :
+            //Set P = Q and start over
+
 
     // the graph must be directed (a useless test, just to illustrate
     // the use of the LG_ASSERT_MSG macro)
