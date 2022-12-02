@@ -80,11 +80,11 @@ int LAGraph_MarkovClustering
     //MCL Algorithm:
 
     //create Graph P as copy of graph G
-    //normalize P
+    //normalize P using GrB_reduce, then make diag, then take inverse using select and minv binary operator. Then mult
     //loop while not in steady state
         //Graph Q is created from the expansion of graph P (take matrix to power of k)
         //Q is inflated by factor r (take each entry to power of r, then renormalize matrix)
-        //Trim small probability entries
+        //Trim small probability entries GrB_select
         //Compare Q to P to check for steady state
         //If in steady state:
             //return results
